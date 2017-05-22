@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>ReservationRect.qml</file>
+        <file>OnBoardRect.qml</file>
+        <file>TripInfoContent.qml</file>
+        <file>OffBoardRect.qml</file>
+        <file>GlobalScript.js</file>
+    </qresource>
+</RCC>
