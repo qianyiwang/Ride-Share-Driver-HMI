@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>deletemark.png</file>
+        <file>checkmark.png</file>
+    </qresource>
+</RCC>

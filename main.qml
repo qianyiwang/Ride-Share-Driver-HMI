@@ -45,10 +45,25 @@ ApplicationWindow {
                         GradientStop{position: 0.0; color: "steelblue"}
                         GradientStop{position: 1.0; color: "darkblue"}
                     }
-
+                    /*
                     ReservationRect{
                         id: reservationRect
                     }
+                    */
+
+                    Text{
+                        text: "Reservation List"
+                        font.pointSize: 30
+                        color: "yellow"
+                        anchors.horizontalCenter: parent.horizontalCenter
+                    }
+
+                    ReservationListView{
+                        id: reserve_list
+                        anchors.fill: parent
+                        anchors.topMargin: parent.height/10
+                        anchors.margins: 30
+                    }
                 }
                 Rectangle{
                     width: root_rect.width/3-5
@@ -57,10 +72,25 @@ ApplicationWindow {
                         GradientStop{position: 0.0; color: "steelblue"}
                         GradientStop{position: 1.0; color: "darkblue"}
                     }
-
+                    /*
                     OnBoardRect{
                         id: onboardRect
                     }
+                    */
+
+                    Text{
+                        text: "On Board List"
+                        font.pointSize: 30
+                        color: "yellow"
+                        anchors.horizontalCenter: parent.horizontalCenter
+                    }
+
+                    OnBoardListView{
+                        id: onboard_list
+                        anchors.fill: parent
+                        anchors.topMargin: parent.height/10
+                        anchors.margins: 30
+                    }
                 }
                 Rectangle{
                     width: root_rect.width/3-5
@@ -69,9 +99,24 @@ ApplicationWindow {
                         GradientStop{position: 0.0; color: "steelblue"}
                         GradientStop{position: 1.0; color: "darkblue"}
                     }
-
+                    /*
                     OffBoardRect{
                         id: offboardRect
+                    }
+                    */
+
+                    Text{
+                        text: "Off Board List"
+                        font.pointSize: 30
+                        color: "yellow"
+                        anchors.horizontalCenter: parent.horizontalCenter
+                    }
+
+                    OffBoardListView{
+                        id: offboard_list
+                        anchors.fill: parent
+                        anchors.topMargin: parent.height/10
+                        anchors.margins: 30
                     }
                 }
             }
@@ -99,15 +144,20 @@ ApplicationWindow {
             var idx, i
             // reservation action
             if(action==="Reservation"){
+                /*
                 GlobalScript.ReservationObj.name.push(name)
                 GlobalScript.ReservationObj.address.push(address)
                 reservationRect.clearText()
                 for(i = 0; i<GlobalScript.ReservationObj.name.length; i++){
                     reservationRect.appendInfo(GlobalScript.ReservationObj.name[i],GlobalScript.ReservationObj.address[i])
                 }
+                */
+                reserve_list.change_mark(name, address, 'qrc:/images/checkmark.png')
+
             }
             // on board action
             else if(action==="OnBoard"){
+                /*
                 // add into OnBoardObj
                 GlobalScript.OnBoardObj.name.push(name)
                 GlobalScript.OnBoardObj.address.push(address)
@@ -125,10 +175,15 @@ ApplicationWindow {
                 for(i = 0; i<GlobalScript.ReservationObj.name.length; i++){
                     reservationRect.appendInfo(GlobalScript.ReservationObj.name[i],GlobalScript.ReservationObj.address[i])
                 }
+                */
+
+                reserve_list.removeItem(name, address)
+                onboard_list.appendInfo(name, address)
             }
 
             // off board action
             else if(action==="OffBoarding"){
+                /*
                 // add into OffBoardObj
                 GlobalScript.OffBoardObj.name.push(name)
                 GlobalScript.OffBoardObj.address.push(address)
@@ -146,6 +201,8 @@ ApplicationWindow {
                 for(i = 0; i<GlobalScript.OnBoardObj.name.length; i++){
                     onboardRect.appendInfo(GlobalScript.OnBoardObj.name[i],GlobalScript.OnBoardObj.address[i])
                 }
+                */
+                offboard_list.removeItem(name, address)
             }
         }
     }

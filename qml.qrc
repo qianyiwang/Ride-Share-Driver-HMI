@@ -6,5 +6,8 @@
         <file>TripInfoContent.qml</file>
         <file>OffBoardRect.qml</file>
         <file>GlobalScript.js</file>
+        <file>OnBoardListView.qml</file>
+        <file>OffBoardListView.qml</file>
+        <file>ReservationListView.qml</file>
     </qresource>
 </RCC>
